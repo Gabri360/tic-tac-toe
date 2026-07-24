@@ -3,18 +3,19 @@ This is a project where I tried to program the game Tic-Tac-Toe using the C lang
 For now, the game is in Italian, infact in the title display the name is *TRIS* (tic-tac-toe in italian).
 ## project composition
 The project is divided into the following folders:
-- `prg/` ----| The main program is located here: ---`tris.c`
-- `lib/` ----| The libraries are located here: --------`tris_lib.c`
-- `head/` ---| The header file is located here: -------`tris_lib.h`
-- `build/` --| The Makefile is located here, and the compilation results will end up here.
+- `prg/` -----| The main program is located here: ---`tris.c`
+- `lib/` -----| The libraries are located here: --------`tris_lib.c`
+- `head/` ----| The header file is located here: -------`tris_lib.h`
+- `build/` ---| The Makefile is located here, and the compilation results will end up here.
+- `vendor/ncurses`---| The only external library used is present here.
 - `doc/` -----| Here are the files useful for the README.md.
 ## project use
-To use this program is required the library `ncurses.h`, also `make` and the compiler `gcc`.
+To use this program is required the library `ncurses.h`, which is present in `vendor/`, also `make` and the compiler `gcc` are required.
 
 Once the files are been downloaded, either via the browser or by using the command:  
 
 ```bash
-git clone git@github.com:Gabri360/Tic-tac-toe.git
+git clone https://github.com/Gabri360/tic-tac-toe.git
 ```
  
 
@@ -30,11 +31,16 @@ This will create a `tris` executable file (as well as object files in the `build
 ```
 The game will appear directly on the terminal.
 
-Another available command is: 
+---
+Another available commands are:
 ```bash 
 make clean
 ```
 which deletes all object files from `build/`
+```bash
+make start
+```
+Which compiles and executes the program
 
 ## Game
 The game offers two modes: 

@@ -336,7 +336,7 @@ void disegna_sign_upd(int state_upd[4],int t, int state[3][3],int *sign, int cpm
             comp_move_easy(state,state_upd);
             if(diff==1)
             comp_move_medium(state,*sign,state_upd);
-            if(diff==3)
+            if(diff==2)
             comp_move_hard(state,*sign,state_upd);
             state_upd[0]=*sign;
             state_upd[3]=t;
