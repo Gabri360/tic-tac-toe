@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <locale.h>
-#include <ncurses.h>
+#include <ncursesw/ncurses.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <wchar.h>

@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "../head/tris_lib.h"
 
 
@@ -5,6 +6,11 @@
 #define HEIGHT 24
 int main()
 {
+    setenv(
+        "TERMINFO",
+        "./vendor/ncurses/share/terminfo",
+        1
+    );
     setlocale(LC_ALL, "");
     srand((unsigned int) time(NULL)); 
     initscr();
