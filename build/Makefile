@@ -6,13 +6,13 @@ LDFLAGS += \
 all: tris
 
 tris: tris.o tris_lib.o
-	gcc $(CFLAGS) tris.o tris_lib.o -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) tris.o tris_lib.o -o $@ $(LDFLAGS)
 
 tris.o: ../prg/tris.c 
-	gcc $(CFLAGS) -c ../prg/tris.c
+	$(CC) $(CFLAGS) -c ../prg/tris.c
 
 tris_lib.o: ../lib/tris_lib.c ../head/tris_lib.h
-	gcc $(CFLAGS) -c ../lib/tris_lib.c
+	$(CC) $(CFLAGS) -c ../lib/tris_lib.c
 
 c:
 	find . -type f ! -name "Makefile" -delete
