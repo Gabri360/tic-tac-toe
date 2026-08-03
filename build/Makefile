@@ -4,12 +4,12 @@ CFLAGS=-g -O3 -Wall -Wextra -Werror -pedantic -Wconversion -std=c99
 
 ifeq ($(OS),Windows_NT)
 	TARGET = tic-tac-toe.exe
-	CFLAGS += -I../vendor/ncurses-win/include
+	CFLAGS += -DNCURSES_STATIC -I../vendor/ncurses-win/include
 	LDFLAGS = -L../vendor/ncurses-win/lib
 else
 	TARGET = tic-tac-toe
 	CFLAGS += -I../vendor/ncurses/include
-	LDFLAGS = -L../vendor/ncurses-win/lib
+	LDFLAGS = -L../vendor/ncurses/lib
 endif
 
 LDFLAGS += -Wl,-Bstatic -lncursesw -Wl,-Bdynamic -lm

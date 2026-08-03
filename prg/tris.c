@@ -6,13 +6,15 @@
 #define HEIGHT 24
 int main()
 {
+    #ifdef __linux__
     setenv(
         "TERMINFO",
         "./vendor/ncurses/share/terminfo",
         1
-    );
+             );
+    #endif
     setlocale(LC_ALL, "");
-    srand((unsigned int) time(NULL)); 
+    srand((unsigned int) time(NULL));
     initscr();
     noecho();
     curs_set(FALSE);
@@ -26,7 +28,7 @@ int main()
     int state[3][3];
     init_state(state);
     title(1);
-    
+
     while(1)
     {
         clear();
@@ -70,8 +72,8 @@ int main()
         if(win_dat[0]!=0||win_dat[1]!=0)
         stp_tab(win_dat);
         disegna_griglia(1);
-        
-        while (1) 
+
+        while (1)
         {
             clear();
             disegna_griglia(0);
@@ -91,7 +93,7 @@ int main()
             if((input=='s'||input==KEY_DOWN)&&indp_rig!=2) {indp_rig++;}
             if((input=='a'||input==KEY_LEFT)&&indp_col!=0) {indp_col--;}
             if((input=='d'||input==KEY_RIGHT)&&indp_col!=2) {indp_col++;}
-            if((input == '\n'||input=='e'||input==' ')&&state[indp_rig][indp_col]==-1) 
+            if((input == '\n'||input=='e'||input==' ')&&state[indp_rig][indp_col]==-1)
             {
                 state_upd[0]=sign;
                 state_upd[1]=indp_rig;
@@ -103,9 +105,9 @@ int main()
             }
             disegna_punt(indp_rig,indp_col);
             disegna_sign_upd(state_upd,t,state,&sign,cpm,&move_c,diff);
-            
+
             disegna_state(state);
-            
+
             if(cpm==0)
             {
                 if(sign_r==0)
@@ -113,20 +115,20 @@ int main()
                 else
                 mvaddstr(43,43,"X has to play");
             }
-            
+
             if(verify_end(state,win)==1)
             break;
             refresh();
             t+=5;
             napms(50);
         }
-        
+
         if(win[0]==0)
         win_dat[0]++;
         if(win[0]==1)
         win_dat[1]++;
-        
-        while (1) 
+
+        while (1)
         {
             clear();
             disegna_griglia(0);
@@ -142,17 +144,17 @@ int main()
                 break;
             }
             if(input=='q'){endwin();exit(1);}
-            
+
             stp_tab(win_dat);
-            
+
             mvaddstr(45,43,"Press ENTER to play again");
             mvaddstr(46,43,"Press Q to exit");
             refresh();
             napms(50);
         }
-        
-        
+
+
     }
     endwin();
-    return 0;  
+    return 0;
 }
